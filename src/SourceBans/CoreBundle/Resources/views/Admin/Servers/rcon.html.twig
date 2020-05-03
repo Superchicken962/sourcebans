@@ -1,0 +1,64 @@
+{% extends '@SourceBansCore/layout.html.twig' %}
+
+{% set pageTitle = 'controllers.servers.rcon.title' | trans %}
+
+{% block title %}{{ pageTitle }} « {{ parent() }}{% endblock %}
+
+{% block body %}
+    {% embed '@SourceBansCore/Admin/layout.html.twig' %}
+        {% block content %}
+            <div class="panel">
+                <div class="panel-body">
+                    <pre class="pre-scrollable" id="console">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+********************************************************
+**                                                    **
+* SourceBans {{ '%-41s' | format('controllers.servers.rcon.title' | trans) }} *
+* {{ '%-52s' | format('Type \'clr\' to clear the console' | trans) }} *
+**                                                    **
+********************************************************
+
+</pre>
+                    <form id="command-form" method="post">
+                        <div class="input-group">
+                            <input autofocus="autofocus" class="form-control" id="command" name="command" placeholder="{{ 'Command' | trans }}" type="text" />
+                            <div class="input-group-btn">
+                                <input class="btn btn-primary" disabled="disabled" id="submit" type="submit" value="{{ 'Execute' | trans }}" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block sidebar %}
+            {% include '@SourceBansCore/Admin/Servers/partials/sidebar.html.twig' %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        require(['server_rcon'], function (serverRcon) {
+            serverRcon('{{ path('sourcebans_core_admin_servers_rcon', {'id': server.id}) }}', '{{ 'Command executed' | trans }}');
+        });
+    </script>
+{% endblock %}

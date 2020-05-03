@@ -1,0 +1,17 @@
+parameters:
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     sourcebans
+    database_user:     root
+    database_password: ~
+    database_prefix:   ~
+
+    mailer_transport:  mail
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    secret:            SourceBansSecretToken
+
+    sourcebans:
+        console_name: CONSOLE

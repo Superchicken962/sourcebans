@@ -1,0 +1,22 @@
+th.icon {
+    width: 1px;
+}
+td.icon > img {
+    vertical-align: text-top;
+}
+
+.table {
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            > th,
+            > td {
+                vertical-align: middle;
+            }
+        }
+    }
+    > thead > tr > th {
+        border-bottom: none;
+    }
+}

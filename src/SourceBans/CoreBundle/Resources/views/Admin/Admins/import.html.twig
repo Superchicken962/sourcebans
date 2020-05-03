@@ -1,0 +1,26 @@
+{% extends '@SourceBansCore/layout.html.twig' %}
+
+{% form_theme form '@SourceBansCore/form_horizontal_layout.html.twig' %}
+
+{% set pageTitle = 'controllers.admin.admins.title' | trans %}
+
+{% block title %}{{ pageTitle }} « {{ parent() }}{% endblock %}
+
+{% block body %}
+    {% embed '@SourceBansCore/Admin/layout.html.twig' %}
+        {% block content %}
+            <div class="panel">
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                        {{ form_row(form.file) }}
+                        {{ form_row(form.submit) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block sidebar %}
+            {% include '@SourceBansCore/Admin/Admins/partials/sidebar.html.twig' %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

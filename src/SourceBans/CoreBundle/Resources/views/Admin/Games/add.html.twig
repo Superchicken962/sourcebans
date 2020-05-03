@@ -1,0 +1,21 @@
+{% extends '@SourceBansCore/layout.html.twig' %}
+
+{% set pageTitle = 'controllers.admin.games.title' | trans %}
+
+{% block title %}{{ pageTitle }} « {{ parent() }}{% endblock %}
+
+{% block body %}
+    {% embed '@SourceBansCore/Admin/layout.html.twig' %}
+        {% block content %}
+            <div class="panel">
+                <div class="panel-body">
+                    {% include '@SourceBansCore/Admin/Games/partials/form.html.twig' %}
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block sidebar %}
+            {% include '@SourceBansCore/Admin/Games/partials/sidebar.html.twig' %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

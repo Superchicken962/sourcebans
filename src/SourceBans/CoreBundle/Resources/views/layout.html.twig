@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <title>{% block title %}SourceBans{% endblock %}</title>
+        <meta charset="UTF-8" />
+        <link href="{{ asset('favicon.ico') }}" rel="icon" type="image/x-icon" />
+        <link href="{{ asset('dist/css/app.css') }}" rel="stylesheet" type="text/css" />
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body{% if settings.theme %} class="theme-{{ settings.theme }}"{% endif %}>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ path('sourcebans_core_default_index') }}">
+                        <img alt="SourceBans logo" src="{{ asset('bundles/sourcebanscore/images/logo_footer.png') }}" />
+                    </a>
+                    {{ knp_menu_render('SourceBansCoreBundle:Builder:mainMenu', {'currentClass': 'active'}) }}
+                </div>
+                <div class="collapse navbar-collapse navbar-right">
+                    <form action="{{ path('sourcebans_core_bans_index') }}" class="navbar-form navbar-left" role="search">
+                        <div class="input-group">
+                            <input name="q" type="text" class="form-control" placeholder="{{ 'Search bans' | trans }}">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                    {{ knp_menu_render('SourceBansCoreBundle:Builder:userMenu', {'currentClass': 'active'}) }}
+                </div>
+            </div>
+        </nav>
+        {% block body %}{% endblock %}
+        <script src="{{ asset('dist/js/app.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

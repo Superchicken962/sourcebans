@@ -1,0 +1,13 @@
+label.required:after {
+    color: $state-danger-text;
+    content: " *";
+}
+textarea.form-control {
+    height: 100px;
+}
+
+.form-control {
+    &:focus {
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    }
+}

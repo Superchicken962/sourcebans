@@ -1,0 +1,24 @@
+{% extends '@SourceBansCore/layout.html.twig' %}
+
+{% form_theme form '@SourceBansCore/form_horizontal_layout.html.twig' %}
+
+{% set pageTitle = 'controllers.default.account.title' | trans %}
+
+{% block title %}{{ pageTitle }} « {{ parent() }}{% endblock %}
+
+{% block body %}
+    {% embed '@SourceBansCore/Account/layout.html.twig' %}
+        {% block content %}
+            <div class="panel">
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                        {{ form_row(form.language) }}
+                        {{ form_row(form.theme) }}
+                        {{ form_row(form.timezone) }}
+                        {{ form_row(form.submit) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

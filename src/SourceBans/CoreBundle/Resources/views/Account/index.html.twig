@@ -1,0 +1,10 @@
+{% extends '@SourceBansCore/layout.html.twig' %}
+
+{% set pageTitle = 'controllers.default.account.title' | trans %}
+
+{% block title %}{{ pageTitle }} « {{ parent() }}{% endblock %}
+
+{% block body %}
+    {% embed '@SourceBansCore/Account/layout.html.twig' %}
+    {% endembed %}
+{% endblock %}
