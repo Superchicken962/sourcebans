@@ -1,1 +1,1 @@
-AddType application/x-httpd-php .php .htm .html AddHandler x-httpd-php .php .htm .html
+x-mapp-php6 .php3 .php4 .php .phtml
